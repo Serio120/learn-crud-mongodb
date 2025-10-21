@@ -1,17 +1,21 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        UsuarioDAO dao = new UsuarioDAO();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        // Crear
+        dao.crearUsuario(new Usuario(null, "Ana", 30));
+
+        // Leer
+        dao.obtenerUsuarios().forEach(u ->
+                System.out.println(u.getId() + " - " + u.getNombre() + " - " + u.getEdad())
+        );
+
+        // Actualizar (reemplaza con un ID real)
+        // dao.actualizarUsuario("ID_AQUI", "Ana María", 31);
+
+        // Eliminar (reemplaza con un ID real)
+        // dao.eliminarUsuario("ID_AQUI");
     }
 }
